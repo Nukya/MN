@@ -1,0 +1,112 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{polski}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pdfpages}
+
+% Dodatkowe deklaracje operatorów wykorzystywane w notatkach.
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\argmin}{arg\,min}
+\DeclareMathOperator{\argmax}{arg\,max}
+
+% Skróty na często używane symbole macierzowe i wektorowe.
+\newcommand{\mat}[1]{\bm{#1}}
+\newcommand{\vect}[1]{\bm{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+\title{Rozdzia\l{} X -- poprawione wstawki \LaTeX{}}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Instrukcja u\zycia}
+Zawarto\'{s}\'{c} niniejszego pliku stanowi szablon do rozdzia\l{}u X, w kt\'orym mo\.{z}na umieszcza\'c fragmenty matematyczne z plik\'ow PDF znajduj\k{a}cych si\k{e} w katalogu \texttt{podrecznik}. Dodane pakiety i definicje zapewniaj\k{a} poprawne renderowanie najcz\k{e}\'{s}ciej u\.{z}ywanych wstawiek (pochodne cz\k{e}sciowe, normy, warto\'{s}ci bezwzgl\k{e}dne, wektory i macierze). W razie potrzeby mo\.{z}na skopiowa\'c odpowiednie wzory z konkretnych rozdzia\l\'ow i wklei\'c je do sekcji poni\.{z}ej.
+
+% Aby szybko podgl\k{a}da\'c oryginalny rozdzia\l{}, odkomentuj jedynie potrzebny plik.
+% \includepdf[pages=-]{1 Rozdzial.pdf}
+% \includepdf[pages=-]{2 Rozdzial.pdf}
+% \includepdf[pages=-]{3 Rozdzial.pdf}
+% \includepdf[pages=-]{4 Rozdzial.pdf}
+% \includepdf[pages=-]{5 Rozdzial.pdf}
+% \includepdf[pages=-]{6 Rozdzial.pdf}
+% \includepdf[pages=-]{7 Rozdzial.pdf}
+% \includepdf[pages=-]{8 Rozdzial.pdf}
+% \includepdf[pages=-]{9 Rozdzial.pdf}
+
+\section{Przyk\l{}adowe poprawione wstawki}
+\begin{itemize}[leftmargin=*]
+    \item Pochodna cz\k{e}\'{s}ciowa z oznaczeniem kierunkowym:
+    \begin{equation}
+        \pdv{f}{x_i}(\vect{x}_0) = \lim_{h\to 0} \frac{f(\vect{x}_0 + h\,\vect{e}_i) - f(\vect{x}_0)}{h}.
+    \end{equation}
+    \item Norma euklidesowa macierzy i przekszta\l{}cenie liniowe:
+    \begin{equation}
+        \norm{A} = \sup_{\vect{x}\in\R^n \setminus \{\vect{0}\}} \frac{\norm{A\vect{x}}_2}{\norm{\vect{x}}_2}, \qquad A \in \R^{n\times n}.
+    \end{equation}
+    \item R\'ownanie rozwoju Taylora z reszt\k{a} w postaci Lagrange'a:
+    \begin{equation}
+        f(x) = \sum_{k=0}^{m} \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + \frac{f^{(m+1)}(\xi)}{(m+1)!}(x-x_0)^{m+1}, \quad \xi \in (x_0, x).
+    \end{equation}
+    \item Uk\l{}ad r\'owna\'n liniowych w zapisie blokowym:
+    \begin{equation}
+        \begin{bmatrix}
+            A & B \\
+            C & D
+        \end{bmatrix}
+        \begin{bmatrix}
+            \vect{x} \\
+            \vect{y}
+        \end{bmatrix} =
+        \begin{bmatrix}
+            \vect{f} \\
+            \vect{g}
+        \end{bmatrix},
+        \qquad A \in \R^{n\times n},\; B \in \R^{n\times m}.
+    \end{equation}
+    \item Notacja na iteracyjny krok metody numerycznej:
+    \begin{equation}
+        \vect{x}^{(k+1)} = \vect{x}^{(k)} - J_f(\vect{x}^{(k)})^{-1} f(\vect{x}^{(k)}),
+    \end{equation}
+    gdzie $J_f$ oznacza macierz Jacobiego, a $k$ jest numerem iteracji.
+    \item Prosta tabela wynik\'ow z legend\k{a} dla symboli:
+    \begin{table}[H]
+        \centering
+        \caption{Przyk\l{}ad formatowania danych}\label{tab:wzor}
+        \begin{tabular}{@{}lll@{}}
+            \toprule
+            Wielko\'{s}\'{c} & Symbol & Warto\'{s}\'{c} \\
+            \midrule
+            B\l{}\k{a}d wzgl\k{e}dny & $\varepsilon_r$ & $1.2\times 10^{-3}$ \\
+            Liczba iteracji & $k$ & $12$ \\
+            Norma residuum & $\norm{r_k}_2$ & $4.5\times 10^{-6}$ \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{itemize}
+
+\section{Miejsce na wstawki z konkretnych rozdzia\l\'ow}
+% Wklej tutaj fragmenty wzor\'ow przeniesione z PDF-\'ow, korzystaj\k{a}c z powy\.{z}szego
+% preambu\l{}y. Na przyk\l{}ad:
+% \begin{align}
+%     y'(x) &= f(x, y(x)), \\
+%     y(x_0) &= y_0.
+% \end{align}
+
+\end{document}
